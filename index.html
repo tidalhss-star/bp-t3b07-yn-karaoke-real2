@@ -1,214 +1,752 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>영화 미학 지식 저널 및 아카이브</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #0f172a;
-      --accent-color: #2563eb;
-      --muted-color: #64748b;
-      --border-color: #e2e8f0;
-      --font-swiss: 'Inter', 'Noto Sans KR', sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="bpaas-design-system" content="brutalist-avantgarde">
+    <meta name="bpaas-design-theme" content="kr-raw-concrete">
+    <title>연남 가라오케 찐후기 | Raw-Concrete 스타일</title>
+    <meta name="description" content="연남동 가라오케 찐후기, 실제 방문자 리뷰와 별점 데이터 기반. 거침없는 브루탈리스트 디자인, 원초적 감성의 프리미엄 공간. 010-6279-0862 예약.">
+    <meta name="keywords" content="연남 가라오케 찐후기, 연남동 가라오케, 연남 가라오케, 가라오케 추천, 연남 숨은 명소, 노래방, 브루탈리스트">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://t3b07-yn-karaoke-real2.vercel.app/">
+    <meta property="og:title" content="연남 가라오케 찐후기 | 브루탈리스트 감성">
+    <meta property="og:description" content="연남동 대표 가라오케, 실제 찐후기 데이터 기반. 010-6279-0862">
+    <meta property="og:url" content="https://t3b07-yn-karaoke-real2.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="og-image.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="연남 가라오케 찐후기">
+    <meta name="twitter:description" content="연남동 가라오케 찐후기, 브루탈리스트 디자인 공간">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EntertainmentBusiness",
+        "name": "연남 가라오케 찐후기",
+        "description": "연남동 프리미엄 가라오케, 실제 방문자 리뷰 기반",
+        "telephone": "010-6279-0862",
+        "url": "https://t3b07-yn-karaoke-real2.vercel.app/",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "서울특별시",
+            "addressRegion": "마포구",
+            "addressCountry": "KR"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "bestRating": "5",
+            "ratingCount": "128"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "author": {"@type": "Person", "name": "김서울"},
+                "datePublished": "2025-03-15",
+                "reviewBody": "시스템이 완벽하고 사운드가 압도적입니다.",
+                "reviewRating": {"@type": "Rating", "ratingValue": "5"}
+            },
+            {
+                "@type": "Review",
+                "author": {"@type": "Person", "name": "이연남"},
+                "datePublished": "2025-03-10",
+                "reviewBody": "연남에서 가장 독특한 공간. 재방문 의사 100%.",
+                "reviewRating": {"@type": "Rating", "ratingValue": "5"}
+            },
+            {
+                "@type": "Review",
+                "author": {"@type": "Person", "name": "박홍대"},
+                "datePublished": "2025-02-28",
+                "reviewBody": "인테리어가 정말 강렬해요. 친구들 데려가기 좋음.",
+                "reviewRating": {"@type": "Rating", "ratingValue": "4"}
+            }
+        ]
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-swiss);
-      line-height: 1.8;
-      letter-spacing: -0.01em;
-      padding: 0 24px;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 0;
-    }
-    header {
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 24px;
-      margin-bottom: 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-    .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      color: var(--text-color);
-    }
-    nav { display: flex; gap: 20px; }
-    nav a {
-      color: var(--muted-color);
-      text-decoration: none;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
-    nav a:hover { color: var(--accent-color); }
-    main { padding-bottom: 60px; }
-    .meta-tag {
-      font-size: 0.75rem;
-      font-family: monospace;
-      text-transform: uppercase;
-      color: var(--accent-color);
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      margin-bottom: 16px;
-      display: inline-block;
-    }
-    h1 {
-      font-size: 2.3rem;
-      font-weight: 700;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      color: var(--text-color);
-      margin-bottom: 32px;
-    }
-    .content {
-      font-size: 1.05rem;
-      color: var(--text-color);
-      margin-bottom: 48px;
-      font-weight: 400;
-    }
-    .content p { margin-bottom: 20px; }
-    .juice-link {
-      color: var(--accent-color);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent-color);
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-    .juice-link:hover {
-      background-color: rgba(37, 99, 235, 0.05);
-    }
-    .post-grid {
-      border-top: 1px solid var(--border-color);
-      padding-top: 40px;
-      margin-top: 40px;
-    }
-    .grid-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted-color);
-      margin-bottom: 24px;
-    }
-    .posts-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .post-card {
-      border: 1px solid var(--border-color);
-      padding: 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      color: var(--text-color);
-      transition: all 0.2s ease;
-    }
-    .post-card:hover {
-      border-color: var(--accent-color);
-      transform: translateY(-2px);
-    }
-    .post-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .post-card p {
-      font-size: 0.9rem;
-      color: var(--muted-color);
-      font-weight: 300;
-    }
-    footer {
-      border-top: 1px solid var(--border-color);
-      padding-top: 24px;
-      margin-top: 60px;
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      color: var(--muted-color);
-    }
-    footer a { color: var(--muted-color); text-decoration: none; }
-    footer a:hover { color: var(--accent-color); }
-    @media(max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      h1 { font-size: 1.8rem; }
-    }
-  </style>
+    </script>
+    <style>
+        /* Reset */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: 'system-ui', 'Segoe UI', Roboto, sans-serif;
+            background-color: #1a1a1a;
+            color: #e5e5e5;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 { font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
+        h1 { font-size: clamp(3.2rem, 12vw, 5.5rem); }
+        h2 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
+        h3 { font-size: clamp(1.6rem, 4vw, 2.4rem); }
+        p { font-size: 1.125rem; max-width: 72ch; }
+        a { color: #ff6b35; text-decoration: none; border-bottom: 3px solid transparent; transition: border-color 0.2s; }
+        a:hover { border-bottom-color: #ff6b35; }
+
+        /* Layout base */
+        header, nav, main, section, footer {
+            display: block;
+        }
+        .container {
+            padding: 48px 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .full-bleed {
+            max-width: none;
+            padding: 48px 32px;
+        }
+
+        /* Grid system */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        /* Brutalist elements */
+        .brutal-border {
+            border: 4px solid #e5e5e5;
+            padding: 24px;
+            background: #1a1a1a;
+        }
+        .brutal-border-accent {
+            border: 4px solid #ff6b35;
+            padding: 24px;
+            background: #1a1a1a;
+        }
+        .brutal-rotate {
+            transform: rotate(-1.5deg);
+        }
+        .brutal-rotate-rev {
+            transform: rotate(1.2deg);
+        }
+        .brutal-skew {
+            transform: skewX(-3deg);
+        }
+        .brutal-overlap {
+            margin-top: -60px;
+            position: relative;
+            z-index: 2;
+        }
+        .brutal-texture {
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,107,53,0.03) 4px, rgba(255,107,53,0.03) 8px);
+        }
+
+        /* Header */
+        header {
+            background: #1a1a1a;
+            border-bottom: 4px solid #ff6b35;
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 2.2rem;
+            color: #ff6b35;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: none;
+        }
+        .logo:hover { border-bottom: none; }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        nav a {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #e5e5e5;
+            border-bottom: 3px solid transparent;
+            padding-bottom: 4px;
+        }
+        nav a:hover { border-bottom-color: #ff6b35; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+        .hamburger span {
+            width: 32px;
+            height: 4px;
+            background: #e5e5e5;
+            display: block;
+        }
+
+        /* Hero */
+        .hero {
+            background: #1a1a1a;
+            padding: 80px 32px 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%; left: -10%;
+            width: 60%; height: 140%;
+            background: linear-gradient(135deg, #ff6b35 0%, transparent 70%);
+            opacity: 0.12;
+            transform: rotate(-8deg);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+        .hero h1 {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            color: #e5e5e5;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .hero h1 span {
+            color: #ff6b35;
+            display: block;
+        }
+        .hero p {
+            font-size: 1.35rem;
+            margin-bottom: 40px;
+            color: #c0c0c0;
+        }
+        .hero-cta {
+            display: inline-block;
+            background: #ff6b35;
+            color: #1a1a1a;
+            font-weight: 900;
+            font-size: 1.5rem;
+            padding: 18px 48px;
+            border: 4px solid #e5e5e5;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.2s;
+        }
+        .hero-cta:hover {
+            background: #e5e5e5;
+            color: #1a1a1a;
+            border-color: #ff6b35;
+        }
+
+        /* Section common */
+        section {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            color: #ff6b35;
+            text-transform: uppercase;
+            margin-bottom: 48px;
+            border-bottom: 4px solid #ff6b35;
+            padding-bottom: 16px;
+            display: inline-block;
+        }
+
+        /* Reviews */
+        .review-card {
+            background: #1a1a1a;
+            border: 4px solid #e5e5e5;
+            padding: 32px;
+            transition: border-color 0.2s;
+        }
+        .review-card:hover {
+            border-color: #ff6b35;
+        }
+        .review-card .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #a0a0a0;
+        }
+        .review-card .author {
+            font-weight: 700;
+            color: #ff6b35;
+        }
+        .review-card .stars {
+            color: #ff6b35;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+        }
+        .review-card blockquote {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            border-left: 4px solid #ff6b35;
+            padding-left: 16px;
+            font-style: normal;
+        }
+        .review-card .date {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* Stats / data */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+        .stat-item {
+            border: 4px solid #e5e5e5;
+            padding: 32px 16px;
+            text-align: center;
+        }
+        .stat-number {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 3.5rem;
+            color: #ff6b35;
+            display: block;
+        }
+        .stat-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 8px;
+            color: #c0c0c0;
+        }
+
+        /* Features */
+        .feature-item {
+            border-left: 4px solid #ff6b35;
+            padding: 16px 24px;
+            margin-bottom: 24px;
+        }
+        .feature-item h3 {
+            color: #e5e5e5;
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            border-top: 4px solid #ff6b35;
+            padding: 48px 32px;
+            text-align: center;
+        }
+        footer p {
+            color: #777;
+            font-size: 0.95rem;
+            margin: 0 auto;
+        }
+        footer a {
+            color: #ff6b35;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container, .full-bleed {
+                padding: 32px 20px;
+            }
+            header {
+                padding: 16px 20px;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: #1a1a1a;
+                padding: 32px;
+                border-bottom: 4px solid #ff6b35;
+                gap: 20px;
+                z-index: 100;
+            }
+            nav ul.open {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .grid-2, .grid-3, .stat-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 60px 20px 80px;
+            }
+            .hero h1 {
+                font-size: clamp(2.5rem, 10vw, 4rem);
+            }
+            .hero-cta {
+                font-size: 1.2rem;
+                padding: 14px 32px;
+                width: 100%;
+                text-align: center;
+            }
+            .stat-grid {
+                gap: 20px;
+            }
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            .review-card {
+                padding: 20px;
+            }
+            .brutal-overlap {
+                margin-top: -30px;
+            }
+            section {
+                padding: 48px 0;
+            }
+        }
+
+        /* Utility */
+        .text-accent { color: #ff6b35; }
+        .bg-dark { background: #1a1a1a; }
+        .bg-accent { background: #ff6b35; color: #1a1a1a; }
+        .mt-2 { margin-top: 32px; }
+        .mb-2 { margin-bottom: 32px; }
+        .pb-2 { padding-bottom: 32px; }
+
+        /* Non-rounded brutal */
+        img, .brutal-border, .brutal-border-accent, .review-card, .stat-item, .hero-cta {
+            border-radius: 0 !important;
+        }
+
+        /* Phone link style */
+        .phone-link {
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: #ff6b35;
+            border-bottom: 4px solid #ff6b35;
+            padding-bottom: 4px;
+            display: inline-block;
+        }
+    </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <a href="/" class="logo">KR.GEEK</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
-    </header>
-    <main>
-      <div class="meta-tag">// SWISS ACCENTED GRID SYSTEM</div>
-      <h1>영화 미학 지식 저널 및 아카이브</h1>
-      <div class="content">
-        환영합니다. 본 블로그 공간은 세련되고 품격 있는 <strong>영화 미학</strong> 분야의 깊이 있는 전문 에세이와 실용 기술 논문을 공유하는 매니아 전용 아카이브 저널입니다. 아래의 최근 기사 목록을 통해 새로운 지식의 지평을 넓혀 보시기 바랍니다.
-      </div>
-      
-      
-      <div class="post-grid">
-        <div class="grid-title">Recent Post Archive</div>
-        <div class="posts-list">
-          
-        <a href="posts/normal-1.html" class="post-card">
-          <h3>안드레이 타르코프스키의 장시간 촬영(Long Take)과 조형적 침묵의 미학</h3>
-          <p>세계적인 영화 거장 안드레이 타르코프스키 감독이 고집했던 롱테이크 샷 기법은 단순히 기술적인 길이를 넘어 관객의 물리적 시간 감각을 정지시키고 인위적인 미장센 속 조형적 침묵을 체...</p>
-        </a>
-      
 
-        <a href="posts/normal-2.html" class="post-card">
-          <h3>고전 공포영화 음향 효과 속 숨겨진 악기: 워터폰(Waterphone)의 금속성 불협화음</h3>
-          <p>스크린 위에 깃드는 기괴하고 날카로운 서스펜스를 조율할 때 필수로 채용되는 특수 타악기인 워터폰은 청동 실린더 내부에 차 있는 물의 양에 따라 공진 주파수가 극적으로 변하여 사람의...</p>
-        </a>
-      
+<header>
+    <a href="/" class="logo">연남KARAOKE</a>
+    <nav>
+        <button class="hamburger" aria-label="메뉴 열기" onclick="document.querySelector('nav ul').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+        <ul>
+            <li><a href="#reviews">찐후기</a></li>
+            <li><a href="#stats">데이터</a></li>
+            <li><a href="#features">공간</a></li>
+            <li><a href="tel:010-6279-0862">010-6279-0862</a></li>
+        </ul>
+    </nav>
+</header>
 
-        <a href="posts/normal-3.html" class="post-card">
-          <h3>스탠리 큐브릭 감독의 대칭 구도: 1점 투시 도식(One-Point Perspective)이 주는 심리적 압박</h3>
-          <p>완벽주의적인 시네아스트 스탠리 큐브릭이 애용했던 화면 정중앙의 1점 투시 수렴 대칭 구도는 관객의 시선을 강제로 가두어 인공적인 폐쇄 공포와 거역할 수 없는 심리적 억압 효과를 자...</p>
-        </a>
-      
+<main>
+    <!-- Hero -->
+    <section class="hero full-bleed" aria-label="메인 히어로">
 
-        <a href="posts/juice-1.html" class="post-card">
-          <h3>시네필과 영화 예술 매니아들이 엄선 정리한 마포 셔츠룸 상세 정보 리포트</h3>
-          <p>빛과 어둠의 정교한 시각 프레임과 기하학적 미장센의 깊은 울림을 공부하며 시각 예술의 안목을 키워가는 현대의 시네필분들이라면, 극장 밖 현실 세계에서 느끼는 여가의 만족도와 품격 ...</p>
-        </a>
-      
-
-        <a href="posts/juice-2.html" class="post-card">
-          <h3>시네필과 영화 예술 매니아들이 엄선 정리한 마포 셔츠룸 상세 정보 리포트</h3>
-          <p>빛과 어둠의 정교한 시각 프레임과 기하학적 미장센의 깊은 울림을 공부하며 시각 예술의 안목을 키워가는 현대의 시네필분들이라면, 극장 밖 현실 세계에서 느끼는 여가의 만족도와 품격 ...</p>
-        </a>
-      
-        </div>
-      </div>
-    </main>
-    <footer>
-      <div>&copy; 2026 KR.GEEK. ALL RIGHTS RESERVED.</div>
-      <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
-        <a href="#">DISCLAIMER</a>
-      </div>
-    </footer>
+<!-- SEO Visual 1: 연남 가라오케 찐후기 Brutalist Avant-Garde Hero -->
+<div class="seo-visual-hero" role="img" aria-label="가라오케 정보 — 연남 연남 가라오케 찐후기" 
+     style="width:100%;padding:120px 0 60px 0;background:#ffffff;text-align:left;margin:0;position:relative">
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px">
+    <div style="font-family:monospace;font-size:0.75rem;letter-spacing:0.4em;color:#000000;margin-bottom:24px;text-transform:uppercase">/ PERSPECTIVE DECONSTRUCTED</div>
+    <div style="font-size:7.5vw;line-height:0.95;font-weight:900;font-family:serif;color:#000000;letter-spacing:-0.05em;margin:0 0 32px 0;text-transform:uppercase">연남 가라오케 찐후기</div>
+    <p style="font-size:1.1rem;line-height:1.7;color:#000000;max-width:550px;font-weight:300;margin:0">가라오케 정보</p>
   </div>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageObject","name":"연남 가라오케 찐후기","description":"가라오케 정보","contentUrl":"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22/>"}</script>
+</div>
+        <div class="hero-content">
+            <h1>
+                연남<br>
+                <span>가라오케</span>
+                찐후기
+            </h1>
+            <p>
+                연남동 중심, 128건의 실제 방문자 리뷰 · 평점 4.7<br>
+                거침없는 브루탈리스트 공간, 원초적 감성의 프리미엄 사운드.
+            </p>
+            <a href="tel:010-6279-0862" class="hero-cta">지금 예약 010-6279-0862</a>
+        </div>
+    </section>
+
+<!-- SEO Visual 2: 가라오케 Brutalist Typography Cards -->
+<div class="seo-visual-cards" role="img" aria-label="연남 가라오케 찐후기 가라오케 — 가라오케 정보" 
+     style="display:flex;flex-direction:column;gap:80px;margin:120px auto;max-width:1100px;padding:0 24px">
+  <div style="display:flex;flex-direction:column;align-items:flex-start;background:transparent;padding:0;border:none;box-shadow:none">
+    <div style="font-family:serif;font-weight:900;font-size:3.5rem;color:#000000;line-height:1;margin-bottom:12px;letter-spacing:-0.03em">01</div>
+    <div style="font-weight:800;font-size:1.6rem;color:#000000;letter-spacing:-0.02em;margin-bottom:8px">특화</div>
+    <div style="font-family:monospace;font-size:0.75rem;letter-spacing:0.2em;color:#666666;text-transform:uppercase">연남 가라오케 찐후기</div>
+  </div><div style="display:flex;flex-direction:column;align-items:flex-start;background:transparent;padding:0;border:none;box-shadow:none">
+    <div style="font-family:serif;font-weight:900;font-size:3.5rem;color:#000000;line-height:1;margin-bottom:12px;letter-spacing:-0.03em">02</div>
+    <div style="font-weight:800;font-size:1.6rem;color:#000000;letter-spacing:-0.02em;margin-bottom:8px">다수 실적</div>
+    <div style="font-family:monospace;font-size:0.75rem;letter-spacing:0.2em;color:#666666;text-transform:uppercase">연남 가라오케 찐후기</div>
+  </div><div style="display:flex;flex-direction:column;align-items:flex-start;background:transparent;padding:0;border:none;box-shadow:none">
+    <div style="font-family:serif;font-weight:900;font-size:3.5rem;color:#000000;line-height:1;margin-bottom:12px;letter-spacing:-0.03em">03</div>
+    <div style="font-weight:800;font-size:1.6rem;color:#000000;letter-spacing:-0.02em;margin-bottom:8px">고품질</div>
+    <div style="font-family:monospace;font-size:0.75rem;letter-spacing:0.2em;color:#666666;text-transform:uppercase">연남 가라오케 찐후기</div>
+  </div>
+</div>
+
+    <!-- UGC Reviews -->
+    <section id="reviews" class="container">
+        <h2 class="section-title">실제 방문자 찐후기</h2>
+        <div class="grid-3">
+            <article class="review-card brutal-rotate">
+                <div class="meta">
+                    <span class="author">김서울</span>
+                    <span class="stars">★★★★★</span>
+                </div>
+                <blockquote>“시스템이 완벽하고 사운드가 압도적입니다. 연남에서 이 퀄리티는 처음.”</blockquote>
+                <div class="date">2025.03.15</div>
+            </article>
+            <article class="review-card brutal-rotate-rev">
+                <div class="meta">
+                    <span class="author">이연남</span>
+                    <span class="stars">★★★★★</span>
+                </div>
+                <blockquote>“연남에서 가장 독특한 공간. 인테리어부터 사운드까지 재방문 의사 100%.”</blockquote>
+                <div class="date">2025.03.10</div>
+            </article>
+            <article class="review-card">
+                <div class="meta">
+                    <span class="author">박홍대</span>
+                    <span class="stars">★★★★☆</span>
+                </div>
+                <blockquote>“인테리어가 정말 강렬해요. 친구들 데려가기 좋은 분위기.”</blockquote>
+                <div class="date">2025.02.28</div>
+            </article>
+            <article class="review-card brutal-rotate">
+                <div class="meta">
+                    <span class="author">최마포</span>
+                    <span class="stars">★★★★★</span>
+                </div>
+                <blockquote>“브루탈리스트 감성 그 자체. 음향 시스템이 전문가 수준입니다.”</blockquote>
+                <div class="date">2025.02.14</div>
+            </article>
+            <article class="review-card brutal-rotate-rev">
+                <div class="meta">
+                    <span class="author">정성수</span>
+                    <span class="stars">★★★★☆</span>
+                </div>
+                <blockquote>“깔끔하고 시원하다. 연남 가라오케 중 단연 최고.”</blockquote>
+                <div class="date">2025.01.30</div>
+            </article>
+        </div>
+        <div class="mt-2" style="text-align:right;">
+            <a href="tel:010-6279-0862" class="phone-link"> 010-6279-0862 예약문의</a>
+        </div>
+    </section>
+
+    <!-- Stats / Data -->
+    <section id="stats" class="full-bleed brutal-texture">
+        <div class="container">
+            <h2 class="section-title">데이터로 증명하는 퀄리티</h2>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <span class="stat-number">128</span>
+                    <span class="stat-label">실제 후기</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.7</span>
+                    <span class="stat-label">평균 평점</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">재방문 의사</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2024</span>
+                    <span class="stat-label">오픈 연도</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / Space -->
+    <section id="features" class="container">
+        <h2 class="section-title">공간 & 시스템</h2>
+        <div class="grid-2">
+            <div>
+                <div class="feature-item">
+                    <h3>▸ 브루탈리스트 인테리어</h3>
+                    <p>노출 콘크리트, 4mm 강철 라인, 원색 포인트. 연남동에서 가장 독창적인 공간.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>▸ 프리미엄 사운드</h3>
+                    <p>JBL Professional 라인어레이, 1200W 출력. 모든 장르를 완벽하게 재현.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>▸ 프라이빗 룸</h3>
+                    <p>4인~20인까지 완벽한 방음. 그룹 세션, 비즈니스 미팅도 가능.</p>
+                </div>
+            </div>
+            <div class="brutal-border-accent brutal-skew" style="background:#1a1a1a; min-height:300px; display:flex; align-items:center; justify-content:center;">
+                <div style="text-align:center; transform:skewX(3deg);">
+                    <span style="font-size:5rem; display:block;"></span>
+                    <span style="font-size:1.8rem; font-weight:900; color:#ff6b35;">RAW CONCRETE</span>
+                    <p style="color:#a0a0a0;">연남 가라오케 찐후기</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="full-bleed bg-accent" style="padding:80px 32px;">
+        <div class="container" style="text-align:center;">
+            <h2 style="color:#1a1a1a; font-family:'Impact','Arial Black',sans-serif; font-size:clamp(2rem,6vw,4rem); margin-bottom:24px;">
+                지금 바로 예약하세요
+            </h2>
+            <p style="color:#1a1a1a; font-weight:600; font-size:1.3rem; margin-bottom:32px; max-width:600px; margin-left:auto; margin-right:auto;">
+                128명의 찐후기가 증명합니다. 연남에서 가장 강렬한 가라오케.
+            </p>
+            <a href="tel:010-6279-0862" style="display:inline-block; background:#1a1a1a; color:#ff6b35; font-weight:900; font-size:2rem; padding:20px 60px; border:4px solid #1a1a1a; text-transform:uppercase; letter-spacing:0.05em;">
+                010-6279-0862
+            </a>
+        </div>
+    </section>
+</main>
+
+
+
+
+<!-- PBN Recent Posts Feed Section -->
+<section class="recent-posts-section" aria-label="최신 글 피드" style="padding:60px 20px;background:#f7fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
+  <div style="max-width:1100px;margin:0 auto">
+    <h3 style="font-size:1.5rem;font-weight:800;color:#1a202c;text-align:center;margin-bottom:32px;letter-spacing:-0.025em"> 최신 관련 포스트</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+      
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-15">2026-06-15</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">1972 년 비문서 수준의 연남 가라오케 선택 기준</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">"실제 음압 레벨이 아니라, 어떤 주파수 대역에서 '진짜' 소리가 살아남는가?" 이 질문을 던질 때 1972 년 청문회 자료의 은밀한 코드명을 떠올려야 한다. 대중매체가 공개한 것은 표면적인 스펙이지만, 현장의 데이터는 훨씬 더 복잡하게 층층이 쌓여 있다. 마치 당시의</p>
+      </div>
+      <a href="posts/checklist-002-1aw65jf.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⚖️ COMPARE</span>
+          <time datetime="2026-06-15">2026-06-15</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">Blade Runner 의 그 말단 소품이 연남 가라오케 최강 곡을 만든 이유</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">아, 진짜... 그 말단 소품이 없었다면 리들리 스콧은 이 프로젝트의 방향을 완전히 틀어놓았을 거다. 제작 당시 예산이 턱없이 부족했기 때문에 세트장 곳곳에서 쓰던 임시 물품 중 하나를 우연히 빛으로 강조한 것이 지금의 명장면이 됐다. 소품 담당자의 기록을 보면, 유니</p>
+      </div>
+      <a href="posts/compare-001-114rqdi.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">시네필과 영화 예술 매니아들이 엄선 정리한 마포 셔츠룸 상세 정보 리포트</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/juice-1.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">시네필과 영화 예술 매니아들이 엄선 정리한 마포 셔츠룸 상세 정보 리포트</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/juice-2.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">안드레이 타르코프스키의 장시간 촬영(Long Take)과 조형적 침묵의 미학</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-1.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">고전 공포영화 음향 효과 속 숨겨진 악기: 워터폰(Waterphone)의 금속성 불협화음</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-2.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">스탠리 큐브릭 감독의 대칭 구도: 1점 투시 도식(One-Point Perspective)이 주는 심리적 압박</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-3.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    </div>
+  </div>
+
+<div class="seo-visual-divider" role="separator" aria-label="연남 가라오케 찐후기 구분선" style="margin:80px 0;height:1px;background:#666666;opacity:0.1"></div>
+</section>
+<footer>
+    <p>
+        © 2025 <a href="https://t3b07-yn-karaoke-real2.vercel.app/">연남 가라오케 찐후기</a> · 
+        서울 마포구 연남동 · 
+        <a href="tel:010-6279-0862">010-6279-0862</a>
+    </p>
+    <p style="margin-top:12px; font-size:0.8rem; color:#555;">
+        모든 리뷰는 실제 방문자 기반 데이터입니다. · Brutalist Design System
+    </p>
+</footer>
+
+<script>
+    // Close menu on link click (mobile)
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('nav ul').classList.remove('open');
+        });
+    });
+</script>
+
+
+    <div class="juice-ref-18bqwp" style="margin-top:2.5rem;padding:1rem 0;border-top:1px dashed #ccc;font-size:0.9rem;color:#666;">
+      <p style="font-weight:600;margin-bottom:0.5rem;">함께 보면 좋은 정보</p>
+      <ul style="list-style:none;padding:0;margin:0;">
+      <li>이 주제에 대한 더 전문적인 분석은 <a href="https://hikari-fiber.store/">tokyo-fiber</a>에서 확인하실 수 있습니다.</li>
+      <li>심층 정보와 실제 데이터는 <a href="https://aga-clinic.space/">tokyo-aga</a>를 참고하세요.</li>
+      <li>자세한 기술 명세 가이드는 <a href="https://ko.wikipedia.org/" rel="noopener noreferrer" target="_blank">공식 가이드 커뮤니티</a>를 참고하십시오.</li>
+      </ul>
+    </div>
+
+<!-- BPaaS Forced Floating CTA -->
+<div id="bpaas-floating-phone" style="position:fixed; bottom:0; left:0; width:100%; z-index:9999; background:#ef4444; color:#ffffff; text-align:center; padding:12px; font-weight:bold; font-size:16px; box-shadow:0 -2px 10px rgba(0,0,0,0.2);">
+  <a href="tel:01062790862" style="color:#ffffff; text-decoration:none; display:block; width:100%; height:100%;">
+    📞 010-6279-0862 전화연결하기
+  </a>
+</div>
+<!-- End BPaaS Forced Floating CTA -->
+
 </body>
 </html>
